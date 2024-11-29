@@ -31,8 +31,9 @@ public class SegurityConfiguration {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Modo sin estado
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, "/login").permitAll() // Permitir POST en /login
-                        //.requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "swagger-ui/**").permitAll()
-                        .anyRequest().authenticated() // Cualquier otra solicitud debe estar autenticada
+                        .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-resources/**", "/webjars/**").permitAll()
+                        .anyRequest()
+                        .authenticated() // Cualquier otra solicitud debe estar autenticada
                 )
                 .addFilterBefore(segurityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build(); // Construir el SecurityFilterChain

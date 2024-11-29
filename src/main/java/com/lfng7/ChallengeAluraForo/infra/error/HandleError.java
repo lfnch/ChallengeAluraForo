@@ -16,7 +16,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @RestControllerAdvice
 public class HandleError {
 
-    @ExceptionHandler({EntityNotFoundException.class, NoResourceFoundException.class})
+    @ExceptionHandler({EntityNotFoundException.class})
     public ResponseEntity<?> error404() {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("El recurso solicitado no existe");
     }
