@@ -28,6 +28,10 @@ public class AuthenticationController {
         this.tokenService = tokenService;
     }
 
+    /*
+    *  METODOS
+    */
+
     @PostMapping
     public ResponseEntity<JwtTokenDto> authenticateteUser(@RequestBody @Valid UserLoginDto userDto) {
         Authentication authToken = new UsernamePasswordAuthenticationToken(
