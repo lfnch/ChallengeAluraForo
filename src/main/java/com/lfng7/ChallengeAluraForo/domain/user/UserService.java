@@ -19,17 +19,30 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    /*
+    *  METODOS
+    */
+
+    //Obtener todos
     public Page<UserGetDto> getAllUsers(Pageable pagination) {
         return userRepository.findAll(pagination).map(UserGetDto::new);
     }
 
+    //Obtener registro por id
     public UserGetDto findById(Long id) {
         Optional<UserEntity> userSearch = userRepository.findById(id);
         if(userSearch.isEmpty()) throw new EntityNotFoundException();
         return userSearch.map(UserGetDto::new).get();
     }
 
+    //Obtener por email
     public UserDetails findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    //Insertar registro
+
+    //Actualizar registro
+
+    //Eliminar registro
 }
