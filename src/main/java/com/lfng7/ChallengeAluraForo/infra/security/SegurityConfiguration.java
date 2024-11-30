@@ -42,6 +42,10 @@ public class SegurityConfiguration {
                 )
                 .addFilterBefore(segurityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build(); // Construir el SecurityFilterChain
+
+        /*return http.csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
+                .build();*/
     }
 
     @Bean
