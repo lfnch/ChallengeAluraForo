@@ -4,6 +4,7 @@ import com.lfng7.ChallengeAluraForo.domain.topical.TopicalService;
 import com.lfng7.ChallengeAluraForo.domain.topical.dto.TopicalCreateDto;
 import com.lfng7.ChallengeAluraForo.domain.topical.dto.TopicalGetDto;
 import com.lfng7.ChallengeAluraForo.domain.topical.dto.TopicalUpdateDto;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/topicals")
+@SecurityRequirement(name = "bearer-key")
 public class TopicalController {
 
     private final TopicalService topicalService;

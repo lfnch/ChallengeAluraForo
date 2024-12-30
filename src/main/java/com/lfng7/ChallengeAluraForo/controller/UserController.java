@@ -3,6 +3,7 @@ package com.lfng7.ChallengeAluraForo.controller;
 import com.lfng7.ChallengeAluraForo.domain.user.UserService;
 import com.lfng7.ChallengeAluraForo.domain.user.dto.UserCreateDto;
 import com.lfng7.ChallengeAluraForo.domain.user.dto.UserGetDto;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
+@SecurityRequirement(name = "bearer-key")
 public class UserController {
 
     private final UserService userService;
